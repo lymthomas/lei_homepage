@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { pick, type Locale } from "../data/site";
+import type { KnowledgeArticle } from "../data/library";
+
+interface Props {
+  locale: Locale;
+  article: KnowledgeArticle;
+}
+
+const { locale, article } = Astro.props as Props;
+
+const pageCopy = {
+  overviewEyebrow: { zh: "内容概览", en: "Overview" },
+  overviewTitle: { zh: "这份资料收录了什么", en: "What this entry includes" },
+  resourcesEyebrow: { zh: "资源下载", en: "Downloads" },
+  resourcesTitle: { zh: "原始文件与补充材料", en: "Original files and companion materials" }
+};
+---
+
+<BaseLayout
+  locale={locale}
+  page="knowledge"
+  title={`${pick(locale, article.title)} | ${locale === "zh" ? "知识分享" : "Knowledge Sharing"}`}
+  description={pick(locale, article.summary)}
+>
+  <section class="page-header article-hero reveal">
+    <div>
+      <p class="eyebrow">{pick(locale, article.tag)}</p>
+      <h1>{pick(locale, article.title)}</h1>
+      <p>{pick(locale, article.summary)}</p>
+    </div>
+
+    <aside class="article-meta-panel">
+      <span class="timeline-period">{article.date}</span>
+      {article.resources && article.resources.length > 0 ? (
+        <div class="article-action-stack">
+          {article.resources.map((resource) => (
+            <a class="button secondary" href={resource.href} target="_blank" rel="noreferrer">
+              {pick(locale, resource.label)}
+            </a>
+          ))}
+        </div>
+      ) : null}
+    </aside>
+  </section>
+
+  {article.cover ? (
+    <section class="article-cover-panel reveal">
+      <img src={article.cover.src} alt={pick(locale, article.cover.alt)} loading="lazy" />
+      {article.cover.caption ? <p class="article-cover-note">{pick(locale, article.cover.caption)}</p> : null}
+    </section>
+  ) : null}
+
+  <section class="section-block">
+    <SectionHeading
+      eyebrow={pick(locale, pageCopy.overviewEyebrow)}
+      title={pick(locale, pageCopy.overviewTitle)}
+    />
+
+    <div class="article-prose reveal">
+      {article.intro.map((paragraph) => (
+        <p>{pick(locale, paragraph)}</p>
+      ))}
+
+      {article.note ? <p class="article-note">{pick(locale, article.note)}</p> : null}
+    </div>
+  </section>
+
+  {article.resources && article.resources.length > 0 ? (
+    <section class="section-block">
+      <SectionHeading
+        eyebrow={pick(locale, pageCopy.resourcesEyebrow)}
+        title={pick(locale, pageCopy.resourcesTitle)}
+      />
+
+      <div class="article-resource-grid">
+        {article.resources.map((resource) => (
+          <a class="resource-link-card reveal" href={resource.href} target="_blank" rel="noreferrer">
+            <span class="card-tag">{pick(locale, pageCopy.resourcesEyebrow)}</span>
+            <h3>{pick(locale, resource.label)}</h3>
+            {resource.note ? <p>{pick(locale, resource.note)}</p> : null}
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null}
+
+  {article.sections?.map((section) => (
+    <section class="section-block">
+      <SectionHeading
+        eyebrow={pick(locale, article.tag)}
+        title={pick(locale, section.title)}
+        description={section.description ? pick(locale, section.description) : undefined}
+        compact
+      />
+
+      {section.body ? (
+        <div class="article-prose reveal">
+          {section.body.map((paragraph) => (
+            <p>{pick(locale, paragraph)}</p>
+          ))}
+        </div>
+      ) : null}
+
+      {section.items ? (
+        <div class="article-detail-grid">
+          {section.items.map((item) => (
+            <article class="article-detail-card reveal">
+              <h3>{pick(locale, item.title)}</h3>
+              {item.description ? <p>{pick(locale, item.description)}</p> : null}
+
+              {item.links && item.links.length > 0 ? (
+                <div class="resource-link-row">
+                  {item.links.map((link) => (
+                    <a class="resource-link-pill" href={link.href} target="_blank" rel="noreferrer">
+                      {pick(locale, link.label)}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      ) : null}
+    </section>
+  ))}
+</BaseLayout>

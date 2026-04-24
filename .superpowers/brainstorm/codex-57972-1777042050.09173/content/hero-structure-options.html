@@ -1,0 +1,144 @@
+﻿<h2>Homepage Hero Restructure</h2>
+<p class="subtitle">Goal: make the first screen feel academically formal, reduce the current split-focus between large name, casual photo, and the dark profile card.</p>
+
+<style>
+  .hero-compare { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+  .hero-choice { border:1px solid rgba(20,33,61,.12); border-radius: 22px; overflow:hidden; background: rgba(255,250,243,.92); box-shadow: 0 18px 38px rgba(20,33,61,.08); cursor:pointer; }
+  .hero-choice.recommended { outline: 3px solid rgba(12,91,94,.2); }
+  .hero-top { padding: 18px 18px 8px; }
+  .hero-top h3 { margin: 0; font-size: 18px; }
+  .hero-top p { margin: 8px 0 0; color: #5f6b7a; font-size: 14px; line-height: 1.6; }
+  .mini { margin: 14px 18px 18px; border-radius: 18px; overflow:hidden; border:1px solid rgba(20,33,61,.12); background: linear-gradient(180deg, #f7f1e8, #f4efe7); }
+  .mini-header { height: 26px; background: rgba(12,91,94,.08); border-bottom:1px solid rgba(20,33,61,.08); }
+  .layout-a, .layout-b, .layout-c { min-height: 360px; padding: 18px; }
+  .kicker { width: 96px; height: 10px; border-radius:999px; background:#1a6a6b; margin-bottom:16px; }
+  .title-xl { width: 68%; height: 58px; border-radius: 16px; background:#152749; margin-bottom:18px; }
+  .title-lg { width: 56%; height: 44px; border-radius: 16px; background:#152749; margin-bottom:18px; }
+  .line { height: 11px; border-radius: 999px; background: rgba(21,39,73,.18); margin-bottom: 12px; }
+  .line.short { width: 60%; }
+  .line.mid { width: 78%; }
+  .btn-row { display:flex; gap:10px; margin-top:20px; }
+  .btn-fill { width: 118px; height: 34px; border-radius:999px; background:#0c5b5e; }
+  .btn-ghost { width: 98px; height: 34px; border-radius:999px; border:1px solid rgba(12,91,94,.22); }
+  .portrait-big { border-radius: 20px; background: linear-gradient(135deg, #ebe3d6, #f7f1e8); border: 1px solid rgba(20,33,61,.1); }
+  .portrait-tall { width: 100%; height: 250px; }
+  .portrait-small { width: 96px; height: 120px; flex: 0 0 auto; }
+  .formal-frame { display:grid; place-items:center; color:#5f6b7a; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+  .panel-dark { margin-top: 16px; border-radius: 22px; background: linear-gradient(160deg, rgba(12,91,94,.96), rgba(20,33,61,.96)); padding: 16px; color:white; }
+  .pill { width: 110px; height: 28px; border-radius:999px; background: rgba(255,255,255,.14); margin-bottom: 18px; }
+  .dark-line { height: 10px; border-radius:999px; background: rgba(255,255,255,.24); margin-bottom: 10px; }
+  .metrics { display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top: 14px; }
+  .metric { height: 66px; border-radius: 16px; background: rgba(255,255,255,.1); }
+  .split-two { display:grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+  .stack-gap { display:grid; gap: 14px; }
+  .top-strip { display:flex; gap:14px; align-items:flex-start; }
+  .bio-card { flex:1; }
+  .stats-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  .stat-light { height: 72px; border-radius: 18px; background: rgba(12,91,94,.08); border:1px solid rgba(12,91,94,.12); }
+  .rail { border-left: 1px solid rgba(20,33,61,.12); padding-left: 16px; }
+  .rail-block { height: 54px; border-radius: 16px; background: rgba(12,91,94,.08); margin-bottom: 10px; }
+  .full-academic { display:grid; grid-template-columns: 1.3fr .7fr; gap: 18px; }
+  .summary-card { border-radius: 20px; background: rgba(255,255,255,.68); border:1px solid rgba(20,33,61,.1); padding: 16px; }
+  .summary-card .line:last-child { margin-bottom:0; }
+  .caption { padding: 0 18px 18px; color:#5f6b7a; font-size: 13px; line-height: 1.65; }
+  @media (max-width: 1100px) { .hero-compare { grid-template-columns: 1fr; } }
+</style>
+
+<div class="hero-compare cards">
+  <div class="hero-choice card" data-choice="A" onclick="toggleSelect(this)">
+    <div class="hero-top">
+      <h3>A. Keep The Split, Simplify The Right Side</h3>
+      <p>Retain the current left-right hero, but merge photo and profile into one cleaner column.</p>
+    </div>
+    <div class="mini">
+      <div class="mini-header"></div>
+      <div class="layout-a split-two">
+        <div>
+          <div class="kicker"></div>
+          <div class="title-xl"></div>
+          <div class="line mid"></div>
+          <div class="line"></div>
+          <div class="line short"></div>
+          <div class="btn-row"><div class="btn-fill"></div><div class="btn-ghost"></div></div>
+        </div>
+        <div class="stack-gap">
+          <div class="portrait-big portrait-tall formal-frame">portrait</div>
+          <div class="summary-card">
+            <div class="line short"></div>
+            <div class="line"></div>
+            <div class="stats-strip"><div class="stat-light"></div><div class="stat-light"></div><div class="stat-light"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caption">More formal than the current version, but still has two competing zones on the right.</div>
+  </div>
+
+  <div class="hero-choice card recommended" data-choice="B" onclick="toggleSelect(this)">
+    <div class="hero-top">
+      <h3>B. Editorial Academic Hero</h3>
+      <p>Use one dominant academic text block, move the portrait to a smaller formal supporting position, and let the stats become a horizontal evidence strip.</p>
+    </div>
+    <div class="mini">
+      <div class="mini-header"></div>
+      <div class="layout-b full-academic">
+        <div>
+          <div class="top-strip">
+            <div class="bio-card">
+              <div class="kicker"></div>
+              <div class="title-xl"></div>
+              <div class="line short"></div>
+            </div>
+            <div class="portrait-big portrait-small formal-frame">portrait</div>
+          </div>
+          <div class="line mid"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="btn-row"><div class="btn-fill"></div><div class="btn-ghost"></div></div>
+          <div class="stats-strip"><div class="stat-light"></div><div class="stat-light"></div><div class="stat-light"></div></div>
+        </div>
+        <div class="rail">
+          <div class="rail-block"></div>
+          <div class="rail-block"></div>
+          <div class="rail-block"></div>
+          <div class="summary-card" style="margin-top:14px;">
+            <div class="line short"></div>
+            <div class="line"></div>
+            <div class="line mid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caption">Most aligned with “academic formal”: the eye lands on identity and research direction first, while the photo becomes credible support instead of the headline.</div>
+  </div>
+
+  <div class="hero-choice card" data-choice="C" onclick="toggleSelect(this)">
+    <div class="hero-top">
+      <h3>C. Academic Dossier Card</h3>
+      <p>Compress the whole hero into one integrated information board with a formal portrait, profile details, and metrics inside a single surface.</p>
+    </div>
+    <div class="mini">
+      <div class="mini-header"></div>
+      <div class="layout-c">
+        <div class="panel-dark">
+          <div class="pill"></div>
+          <div style="display:grid; grid-template-columns: .9fr 1.1fr; gap: 14px; align-items:start;">
+            <div class="portrait-big portrait-tall formal-frame" style="height:210px; background: rgba(255,255,255,.14); color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.12);">portrait</div>
+            <div>
+              <div class="dark-line" style="width:58%; height:34px;"></div>
+              <div class="dark-line" style="width:76%;"></div>
+              <div class="dark-line"></div>
+              <div class="dark-line" style="width:86%;"></div>
+            </div>
+          </div>
+          <div class="metrics"><div class="metric"></div><div class="metric"></div><div class="metric"></div></div>
+          <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,.12);">
+            <div class="dark-line"></div>
+            <div class="dark-line" style="width:90%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caption">Strong and tidy, but can feel too heavy and card-like for a homepage first screen.</div>
+  </div>
+</div>

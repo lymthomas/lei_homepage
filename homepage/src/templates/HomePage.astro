@@ -1,0 +1,173 @@
+---
+import CollectionCard from "../components/CollectionCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { getFeaturedKnowledgeItems } from "../data/library";
+import {
+  getSortedNewsItems,
+  getVisibleLinks,
+  links,
+  newsItems,
+  pick,
+  profile,
+  routes,
+  sectionEntries,
+  ui,
+  type Locale
+} from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+const visibleLinks = getVisibleLinks(links);
+const latestNews = getSortedNewsItems(newsItems).slice(0, 3);
+const featuredKnowledge = getFeaturedKnowledgeItems(locale, 3);
+---
+
+<BaseLayout locale={locale} page="home">
+  <section class="hero">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">{pick(locale, ui.home.eyebrow)}</p>
+      <h1>{pick(locale, profile.name)}</h1>
+      <p class="hero-role">{pick(locale, profile.role)}</p>
+      <p class="hero-summary">{pick(locale, profile.summary)}</p>
+
+      <div class="hero-actions">
+        <a class="button primary" href={routes[locale].cv}>{pick(locale, ui.home.primaryCta)}</a>
+        <a class="button secondary" href={routes[locale].knowledge}>{pick(locale, ui.home.secondaryCta)}</a>
+      </div>
+    </div>
+
+    <article class="spotlight-card reveal">
+      <span class="chip">{pick(locale, profile.affiliation)}</span>
+      <h2>{pick(locale, profile.name)}</h2>
+      <p>{pick(locale, ui.home.heroLead)}</p>
+      <p class="meta-line">{pick(locale, profile.mentor)}</p>
+      <p class="meta-line">{pick(locale, profile.location)}</p>
+
+      <div class="metric-grid">
+        {profile.heroMetrics.map((metric) => (
+          <div class="metric-card">
+            <strong>{pick(locale, metric.value)}</strong>
+            <span>{pick(locale, metric.label)}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="spotlight-note">
+        <p>{pick(locale, profile.researchSummary)}</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading
+      eyebrow={pick(locale, ui.home.researchEyebrow)}
+      title={pick(locale, ui.home.researchTitle)}
+      description={pick(locale, ui.home.researchDescription)}
+    />
+
+    <div class="focus-grid">
+      {profile.focusAreas.map((area) => (
+        <article class="info-card reveal">
+          <h3>{pick(locale, area.title)}</h3>
+          <p>{pick(locale, area.body)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading
+      eyebrow={pick(locale, ui.home.highlightsEyebrow)}
+      title={pick(locale, ui.home.highlightsTitle)}
+      description={pick(locale, ui.home.highlightsDescription)}
+    />
+
+    <div class="highlight-grid">
+      {profile.featuredHighlights.map((item) => (
+        <article class="highlight-card reveal">
+          <span class="card-tag">{pick(locale, item.tag)}</span>
+          <h3>{pick(locale, item.title)}</h3>
+          <p>{pick(locale, item.body)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading
+      eyebrow={pick(locale, ui.home.newsEyebrow)}
+      title={pick(locale, ui.home.newsTitle)}
+      description={pick(locale, ui.home.newsDescription)}
+    />
+
+    <div class="news-preview-grid">
+      {latestNews.map((item) => (
+        <article class="news-preview-card reveal">
+          <span class="timeline-period">{item.date}</span>
+          <h3>{pick(locale, item.title)}</h3>
+          <p>{pick(locale, item.summary)}</p>
+          <a class="inline-link" href={routes[locale].news}>{pick(locale, ui.home.newsCta)}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading
+      eyebrow={pick(locale, ui.home.libraryEyebrow)}
+      title={pick(locale, ui.home.libraryTitle)}
+      description={pick(locale, ui.home.libraryDescription)}
+    />
+
+    <div class="card-grid">
+      {featuredKnowledge.map((item) => (
+        <CollectionCard item={item} locale={locale} />
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading
+      eyebrow={pick(locale, ui.home.sectionsEyebrow)}
+      title={pick(locale, ui.home.sectionsTitle)}
+      description={pick(locale, ui.home.sectionsDescription)}
+    />
+
+    <div class="entry-grid">
+      {sectionEntries.map((entry) => (
+        <a class="entry-card reveal" href={routes[locale][entry.key]}>
+          <span class="card-index">0{sectionEntries.indexOf(entry) + 1}</span>
+          <h3>{pick(locale, entry.title)}</h3>
+          <p>{pick(locale, entry.summary)}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading
+      eyebrow={pick(locale, ui.home.contactEyebrow)}
+      title={pick(locale, ui.home.contactTitle)}
+      description={pick(locale, ui.home.contactDescription)}
+    />
+
+    <div class="contact-panel reveal">
+      <div class="contact-copy">
+        <p>{pick(locale, ui.home.heroLead)}</p>
+      </div>
+
+      <ul class="contact-list">
+        {visibleLinks.map((item) => (
+          <li>
+            <span>{pick(locale, item.label)}</span>
+            <a href={item.href}>{pick(locale, item.value)}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

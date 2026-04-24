@@ -1,0 +1,5 @@
+﻿$env:BRAINSTORM_DIR = 'D:\Code\blog\.superpowers\brainstorm\codex-hero-visual'
+$env:BRAINSTORM_PORT = '52358'
+$env:BRAINSTORM_HOST = '127.0.0.1'
+$env:BRAINSTORM_URL_HOST = 'localhost'
+node 'C:/Users/Thomas/.codex/plugins/cache/openai-curated/superpowers/b7ed91c86dc6604b8217892f05c8866518c82852/skills/brainstorming/scripts/server.cjs' *>> 'D:\Code\blog\.superpowers\brainstorm\codex-hero-visual\state\server-console.log'

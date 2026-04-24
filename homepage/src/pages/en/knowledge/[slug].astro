@@ -1,0 +1,15 @@
+---
+import KnowledgeArticlePage from "../../../templates/KnowledgeArticlePage.astro";
+import { knowledgeArticles } from "../../../data/library";
+
+export function getStaticPaths() {
+  return knowledgeArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props;
+---
+
+<KnowledgeArticlePage locale="en" article={article} />

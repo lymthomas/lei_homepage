@@ -1,0 +1,71 @@
+---
+import "../styles/global.css";
+import {
+  getAlternateLocale,
+  getPageDescription,
+  getPageTitle,
+  navigation,
+  pick,
+  routes,
+  siteBrand,
+  ui,
+  type Locale,
+  type PageKey
+} from "../data/site";
+
+interface Props {
+  locale: Locale;
+  page: PageKey;
+  title?: string;
+  description?: string;
+}
+
+const { locale, page, title, description } = Astro.props as Props;
+const otherLocale = getAlternateLocale(locale);
+const metaTitle = title ?? getPageTitle(locale, page);
+const metaDescription = description ?? getPageDescription(locale, page);
+const navKeys: PageKey[] = ["home", "cv", "news", "knowledge", "apps"];
+---
+
+<!doctype html>
+<html lang={locale === "zh" ? "zh-CN" : "en"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={metaDescription} />
+    <title>{metaTitle}</title>
+  </head>
+  <body>
+    <div class="page-background"></div>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href={routes[locale].home}>
+          <span class="brand-copy">
+            <strong>{pick(locale, siteBrand.title)}</strong>
+            <span>{pick(locale, siteBrand.subtitle)}</span>
+          </span>
+        </a>
+
+        <nav class="nav">
+          {navKeys.map((key) => (
+            <a class:list={["nav-link", page === key && "is-active"]} href={routes[locale][key]}>
+              {pick(locale, navigation[key])}
+            </a>
+          ))}
+        </nav>
+
+        <a class="lang-switcher" href={routes[otherLocale][page]}>
+          {pick(locale, ui.languageSwitch)}
+        </a>
+      </header>
+
+      <main class="main-content">
+        <slot />
+      </main>
+
+      <footer class="footer">
+        <p>{pick(locale, ui.footer)}</p>
+      </footer>
+    </div>
+  </body>
+</html>

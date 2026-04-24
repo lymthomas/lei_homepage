@@ -1,0 +1,44 @@
+---
+import CollectionCard from "../components/CollectionCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getKnowledgeCollectionItems } from "../data/library";
+import {
+  appItems,
+  getPublishedItems,
+  pick,
+  ui,
+  type Locale
+} from "../data/site";
+
+interface Props {
+  locale: Locale;
+  section: "knowledge" | "apps";
+}
+
+const { locale, section } = Astro.props as Props;
+const publishedItems =
+  section === "knowledge" ? getKnowledgeCollectionItems(locale) : getPublishedItems(appItems);
+const copy = ui[section];
+---
+
+<BaseLayout locale={locale} page={section}>
+  <section class="page-header reveal">
+    <p class="eyebrow">{pick(locale, copy.eyebrow)}</p>
+    <h1>{pick(locale, copy.title)}</h1>
+    <p>{pick(locale, copy.description)}</p>
+  </section>
+
+  {publishedItems.length > 0 ? (
+    <section class="card-grid">
+      {publishedItems.map((item) => (
+        <CollectionCard item={item} locale={locale} />
+      ))}
+    </section>
+  ) : (
+    <section class="empty-state reveal">
+      <span class="card-tag">{pick(locale, copy.eyebrow)}</span>
+      <h2>{pick(locale, copy.emptyTitle)}</h2>
+      <p>{pick(locale, copy.emptyBody)}</p>
+    </section>
+  )}
+</BaseLayout>

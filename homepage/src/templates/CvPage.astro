@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import {
+  activities,
+  education,
+  honors,
+  pick,
+  profile,
+  research,
+  skills,
+  ui,
+  type Locale
+} from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+const formalPortraitAlt = "Yiming Lei formal portrait";
+---
+
+<BaseLayout locale={locale} page="cv">
+  <section class="page-header profile-header reveal">
+    <div class="profile-header-copy">
+      <p class="eyebrow">{pick(locale, ui.cv.eyebrow)}</p>
+      <h1>{pick(locale, ui.cv.title)}</h1>
+      <p class="page-header-role">{pick(locale, profile.role)}</p>
+      <p>{pick(locale, ui.cv.description)}</p>
+    </div>
+
+    <div class="profile-header-media">
+      <img
+        src="/resources/profile/selfie_formal.JPG"
+        alt={formalPortraitAlt}
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading eyebrow={pick(locale, ui.cv.eyebrow)} title={pick(locale, ui.cv.education)} compact />
+    <div class="timeline-grid">
+      {education.map((item) => (
+        <article class="timeline-card reveal">
+          <span class="timeline-period">{pick(locale, item.period)}</span>
+          <h3>{pick(locale, item.title)}</h3>
+          <p class="timeline-subtitle">{pick(locale, item.subtitle)}</p>
+          <p>{pick(locale, item.detail)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading eyebrow={pick(locale, ui.cv.eyebrow)} title={pick(locale, ui.cv.research)} compact />
+    <div class="timeline-grid">
+      {research.map((item) => (
+        <article class="timeline-card reveal">
+          <span class="timeline-period">{pick(locale, item.period)}</span>
+          <h3>{pick(locale, item.title)}</h3>
+          <p class="timeline-subtitle">{pick(locale, item.subtitle)}</p>
+          <p>{pick(locale, item.detail)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading eyebrow={pick(locale, ui.cv.eyebrow)} title={pick(locale, ui.cv.honors)} compact />
+    <div class="highlight-grid">
+      {honors.map((item) => (
+        <article class="highlight-card reveal">
+          <span class="card-tag">{pick(locale, item.tag)}</span>
+          <h3>{pick(locale, item.title)}</h3>
+          <p>{pick(locale, item.body)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading eyebrow={pick(locale, ui.cv.eyebrow)} title={pick(locale, ui.cv.activities)} compact />
+    <div class="timeline-grid">
+      {activities.map((item) => (
+        <article class="timeline-card reveal">
+          <span class="timeline-period">{pick(locale, item.period)}</span>
+          <h3>{pick(locale, item.title)}</h3>
+          <p class="timeline-subtitle">{pick(locale, item.subtitle)}</p>
+          <p>{pick(locale, item.detail)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <SectionHeading eyebrow={pick(locale, ui.cv.eyebrow)} title={pick(locale, ui.cv.skills)} compact />
+    <div class="skills-grid">
+      {skills.map((group) => (
+        <article class="skill-card reveal">
+          <h3>{pick(locale, group.title)}</h3>
+          <ul>
+            {group.items.map((item) => (
+              <li>{pick(locale, item)}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

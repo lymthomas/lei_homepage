@@ -1,0 +1,23 @@
+---
+import type { CollectionItem, Locale } from "../data/site";
+import { pick } from "../data/site";
+
+interface Props {
+  item: CollectionItem;
+  locale: Locale;
+}
+
+const { item, locale } = Astro.props as Props;
+const isExternal = item.kind === "external";
+---
+
+<a
+  class:list={["collection-card", item.featured && "is-featured"]}
+  href={item.href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noreferrer" : undefined}
+>
+  <span class="card-tag">{pick(locale, item.tag)}</span>
+  <h3>{pick(locale, item.title)}</h3>
+  <p>{pick(locale, item.summary)}</p>
+</a>

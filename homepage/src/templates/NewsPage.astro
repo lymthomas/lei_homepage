@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  getSortedNewsItems,
+  newsItems,
+  pick,
+  ui,
+  type Locale
+} from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+const items = getSortedNewsItems(newsItems);
+---
+
+<BaseLayout locale={locale} page="news">
+  <section class="page-header reveal">
+    <p class="eyebrow">{pick(locale, ui.news.eyebrow)}</p>
+    <h1>{pick(locale, ui.news.title)}</h1>
+    <p>{pick(locale, ui.news.description)}</p>
+  </section>
+
+  <section class="news-list">
+    {items.map((item) => (
+      <article class="news-card reveal">
+        <div class="news-media">
+          {item.image.src ? (
+            <img src={item.image.src} alt={pick(locale, item.image.alt)} loading="lazy" />
+          ) : (
+            <div class="news-media-placeholder">
+              <span class="card-tag">{pick(locale, ui.news.imagePlaceholder)}</span>
+              <p>{pick(locale, item.image.note)}</p>
+            </div>
+          )}
+        </div>
+
+        <div class="news-copy">
+          <div class="news-meta">
+            <span class="timeline-period">{item.date}</span>
+            <span class="news-source">
+              {pick(locale, ui.news.sourceLabel)} · {pick(locale, item.source)}
+            </span>
+          </div>
+
+          <h2>{pick(locale, item.title)}</h2>
+          <p>{pick(locale, item.summary)}</p>
+
+          <a class="inline-link" href={item.href} target="_blank" rel="noreferrer">
+            {pick(locale, ui.news.linkLabel)}
+          </a>
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>
