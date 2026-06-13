@@ -52,6 +52,20 @@ const formulaSheet = { zh: "公式单 PDF", en: "Formula Sheet PDF" };
 const conceptMap = { zh: "结构图", en: "Concept Map" };
 const fullPaper = { zh: "论文 PDF", en: "Paper PDF" };
 
+const knowledgeOrder = [
+  "reinforcement-learning-notes",
+  "lg-formula-sheet",
+  "philosophy-assignments",
+  "modern-physics-experiment-reports",
+  "today-physics-outline",
+  "general-physics-experiment-ii",
+  "general-physics-experiment-i",
+  "microelectronics-introduction",
+  "computational-physics-assignments",
+  "xi-thoughts-course",
+  "xi-outline"
+];
+
 export const knowledgeArticles: KnowledgeArticle[] = [
   {
     slug: "general-physics-experiment-i",
@@ -62,7 +76,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       en: "A curated record of General Physics Experiment I, including lab reports, preview reports, and an independent final project."
     },
     tag: { zh: "课程实验", en: "Laboratory" },
-    featured: true,
+    featured: false,
     intro: [
       {
         zh: "在大一第一个学期，我选修了《普通物理实验 I》课程。这里保留了旧站中的实验记录，并将实验报告与预习材料整合为更清晰的资料页。",
@@ -197,7 +211,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       en: "An organized archive of six in-class experiments and four independent experiments from General Physics Experiment II."
     },
     tag: { zh: "课程实验", en: "Laboratory" },
-    featured: true,
+    featured: false,
     intro: [
       {
         zh: "《普通物理实验 II》延续了实验训练与报告写作的节奏，这一页将旧站中的实验材料按新站风格重新归档。",
@@ -365,7 +379,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       en: "A structured view of the Xi Thought review outline, accompanied by the original PDF and concept map."
     },
     tag: { zh: "考试提纲", en: "Exam Outline" },
-    featured: true,
+    featured: false,
     intro: [
       {
         zh: "这份提纲最初使用 Markdown 编写，目标是在尽可能少背诵的前提下把握整本课程的高频框架与核心考点。",
@@ -516,7 +530,7 @@ export const knowledgeArticles: KnowledgeArticle[] = [
       en: "An index of the personal formula sheet collection, with the original PDF preserved for download."
     },
     tag: { zh: "学习资料", en: "Study Notes" },
-    featured: false,
+    featured: true,
     intro: [
       {
         zh: "这份公式单汇集了学习与竞赛过程中长期整理的高频公式、技巧与总结，覆盖数学、物理与实验统计等多个模块。",
@@ -566,11 +580,214 @@ export const knowledgeArticles: KnowledgeArticle[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "computational-physics-assignments",
+    date: "2026-06-13",
+    title: { zh: "计算物理作业", en: "Computational Physics Assignments" },
+    summary: {
+      zh: "整理计算物理课程中的四次作业 PDF，作为课程学习过程资料归档。",
+      en: "An archive of four PDF assignments from the Computational Physics course."
+    },
+    tag: { zh: "课程作业", en: "Course Assignments" },
+    featured: false,
+    intro: [
+      {
+        zh: "这一页收录计算物理课程中的阶段性作业，保留原始 PDF 文件，方便后续统一检索和下载。",
+        en: "This page collects the staged assignments from Computational Physics and preserves the original PDF files for reference and download."
+      }
+    ],
+    sections: [
+      {
+        title: { zh: "作业列表", en: "Assignment List" },
+        items: [
+          {
+            title: { zh: "计算物理作业 1", en: "Computational Physics Assignment 1" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/computing_physics_assignments/2300011454_雷逸鸣_hw1.pdf` }]
+          },
+          {
+            title: { zh: "计算物理作业 2", en: "Computational Physics Assignment 2" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/computing_physics_assignments/2300011454_雷逸鸣_hw2.pdf` }]
+          },
+          {
+            title: { zh: "计算物理作业 3", en: "Computational Physics Assignment 3" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/computing_physics_assignments/2300011454_雷逸鸣_hw3.pdf` }]
+          },
+          {
+            title: { zh: "计算物理作业 4", en: "Computational Physics Assignment 4" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/computing_physics_assignments/2300011454_雷逸鸣_hw4.pdf` }]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "philosophy-assignments",
+    date: "2026-06-13",
+    title: { zh: "哲学作业", en: "Philosophy Assignments" },
+    summary: {
+      zh: "整理哲学课程中的七次作业 PDF，保留为课程写作资料归档。",
+      en: "An archive of seven PDF assignments from a philosophy course."
+    },
+    tag: { zh: "课程作业", en: "Course Assignments" },
+    featured: false,
+    intro: [
+      {
+        zh: "这一页收录哲学课程作业，按照原始文件顺序归档，便于在知识库中统一维护。",
+        en: "This page collects philosophy course assignments in their original order so they can be maintained within the knowledge library."
+      }
+    ],
+    sections: [
+      {
+        title: { zh: "作业列表", en: "Assignment List" },
+        items: [
+          {
+            title: { zh: "哲学作业 1", en: "Philosophy Assignment 1" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/philosophy_assignments/assignment1-2300011454.pdf` }]
+          },
+          {
+            title: { zh: "哲学作业 2", en: "Philosophy Assignment 2" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/philosophy_assignments/assignment2-2300011454.pdf` }]
+          },
+          {
+            title: { zh: "哲学作业 3", en: "Philosophy Assignment 3" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/philosophy_assignments/assignment3-2300011454.pdf` }]
+          },
+          {
+            title: { zh: "哲学作业 4", en: "Philosophy Assignment 4" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/philosophy_assignments/assignment4-2300011454.pdf` }]
+          },
+          {
+            title: { zh: "哲学作业 5", en: "Philosophy Assignment 5" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/philosophy_assignments/assignment5-2300011454.pdf` }]
+          },
+          {
+            title: { zh: "哲学作业 6", en: "Philosophy Assignment 6" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/philosophy_assignments/assignment6-2300011454.pdf` }]
+          },
+          {
+            title: { zh: "哲学作业 7", en: "Philosophy Assignment 7" },
+            links: [{ label: { zh: "作业 PDF", en: "Assignment PDF" }, href: `${pdfRoot}/philosophy_assignments/assignment7-2300011454.pdf` }]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "modern-physics-experiment-reports",
+    date: "2026-06-13",
+    title: { zh: "近代物理实验报告", en: "Modern Physics Experiment Reports" },
+    summary: {
+      zh: "整理近代物理实验课程中的七份实验报告，覆盖激光器、谱仪、显微镜、核磁共振、磁光效应和非线性斑图等主题。",
+      en: "A collection of seven modern physics experiment reports covering lasers, scintillation spectroscopy, microscopy, NMR, magneto-optics, and nonlinear patterns."
+    },
+    tag: { zh: "课程实验", en: "Laboratory" },
+    featured: false,
+    intro: [
+      {
+        zh: "这一页集中归档近代物理实验报告，延续普通物理实验资料页的组织方式，按实验主题列出原始 PDF。",
+        en: "This page archives modern physics experiment reports in the same style as the general physics experiment pages, listing the original PDFs by topic."
+      }
+    ],
+    sections: [
+      {
+        title: { zh: "实验报告", en: "Experiment Reports" },
+        items: [
+          {
+            title: { zh: "HeNe 激光器放电条件研究", en: "Study of Discharge Conditions in a HeNe Laser" },
+            links: [{ label: experimentReport, href: `${pdfRoot}/modern_physics_experiments/HeNe激光器放电条件研究-雷逸鸣.pdf` }]
+          },
+          {
+            title: { zh: "Na(Tl) 闪烁谱仪", en: "Na(Tl) Scintillation Spectrometer" },
+            links: [{ label: experimentReport, href: `${pdfRoot}/modern_physics_experiments/Na(Tl)闪烁谱仪_v2.pdf` }]
+          },
+          {
+            title: { zh: "扫描电子显微镜", en: "Scanning Electron Microscope" },
+            links: [{ label: experimentReport, href: `${pdfRoot}/modern_physics_experiments/扫描电子显微镜_雷逸鸣.pdf` }]
+          },
+          {
+            title: { zh: "扫描隧穿显微镜", en: "Scanning Tunneling Microscope" },
+            links: [{ label: experimentReport, href: `${pdfRoot}/modern_physics_experiments/扫描隧穿显微镜.pdf` }]
+          },
+          {
+            title: { zh: "核磁共振", en: "Nuclear Magnetic Resonance" },
+            links: [{ label: experimentReport, href: `${pdfRoot}/modern_physics_experiments/核磁共振-雷逸鸣.pdf` }]
+          },
+          {
+            title: { zh: "磁光克尔效应", en: "Magneto-Optical Kerr Effect" },
+            links: [{ label: experimentReport, href: `${pdfRoot}/modern_physics_experiments/磁光克尔效应_雷逸鸣.pdf` }]
+          },
+          {
+            title: { zh: "非线性对流斑图", en: "Nonlinear Convection Patterns" },
+            links: [{ label: experimentReport, href: `${pdfRoot}/modern_physics_experiments/非线性对流斑图.pdf` }]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "today-physics-outline",
+    date: "2026-06-13",
+    title: { zh: "今日物理复习提纲", en: "Today Physics Review Outline" },
+    summary: {
+      zh: "收录今日物理课程复习提纲 PDF，作为课程复习资料归档。",
+      en: "A review outline PDF archived for the Today Physics course."
+    },
+    tag: { zh: "考试提纲", en: "Exam Outline" },
+    featured: false,
+    intro: [
+      {
+        zh: "这一页保留今日物理复习提纲的原始 PDF，方便在考试复习和资料整理时直接下载。",
+        en: "This page preserves the original Today Physics review outline PDF for direct access during review and organization."
+      }
+    ],
+    resources: [
+      { label: { zh: "今日物理复习提纲", en: "Today Physics Review Outline" }, href: `${pdfRoot}/study_notes/今日物理复习提纲.pdf`, note: outline }
+    ]
+  },
+  {
+    slug: "reinforcement-learning-notes",
+    date: "2026-06-13",
+    title: { zh: "强化学习知识整理", en: "Reinforcement Learning Notes" },
+    summary: {
+      zh: "收录强化学习知识整理 PDF，作为 AI 与机器学习方向的学习资料归档。",
+      en: "A PDF archive of reinforcement learning notes for AI and machine learning study."
+    },
+    tag: { zh: "学习资料", en: "Study Notes" },
+    featured: true,
+    intro: [
+      {
+        zh: "这一页整理强化学习相关知识笔记，保留原始 PDF，方便后续在 AI 学习资料中继续扩展。",
+        en: "This page preserves reinforcement learning notes as a PDF and leaves room for future AI study resources to be added in the same structure."
+      }
+    ],
+    resources: [
+      { label: { zh: "强化学习知识整理", en: "Reinforcement Learning Notes" }, href: `${pdfRoot}/study_notes/强化学习知识整理.pdf`, note: { zh: "学习笔记 PDF", en: "Study Notes PDF" } }
+    ]
   }
 ];
 
-function sortByDate<T extends { date: string }>(items: T[]): T[] {
-  return [...items].sort((left, right) => right.date.localeCompare(left.date));
+function sortKnowledgeArticles<T extends { date: string; slug: string }>(items: T[]): T[] {
+  const orderIndex = new Map(knowledgeOrder.map((slug, index) => [slug, index]));
+
+  return [...items].sort((left, right) => {
+    const leftIndex = orderIndex.get(left.slug);
+    const rightIndex = orderIndex.get(right.slug);
+
+    if (leftIndex !== undefined && rightIndex !== undefined) {
+      return leftIndex - rightIndex;
+    }
+
+    if (leftIndex !== undefined) {
+      return -1;
+    }
+
+    if (rightIndex !== undefined) {
+      return 1;
+    }
+
+    return right.date.localeCompare(left.date);
+  });
 }
 
 export function getKnowledgePath(locale: Locale, slug: string): string {
@@ -582,7 +799,7 @@ export function getKnowledgeArticleBySlug(slug: string): KnowledgeArticle | unde
 }
 
 export function getKnowledgeCollectionItems(locale: Locale): CollectionItem[] {
-  return sortByDate(knowledgeArticles).map((article) => ({
+  return sortKnowledgeArticles(knowledgeArticles).map((article) => ({
     id: article.slug,
     title: article.title,
     summary: article.summary,
