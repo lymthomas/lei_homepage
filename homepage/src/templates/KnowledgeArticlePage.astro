@@ -17,6 +17,16 @@ const pageCopy = {
   resourcesEyebrow: { zh: "资源下载", en: "Downloads" },
   resourcesTitle: { zh: "原始文件与补充材料", en: "Original files and companion materials" }
 };
+
+const pdfPreviewCaption = locale === "zh" ? "PDF 概览" : "PDF overview";
+
+function getPdfPreviewSrc(href: string) {
+  if (!href.startsWith("/resources/pdf/") || !href.toLowerCase().endsWith(".pdf")) {
+    return undefined;
+  }
+
+  return href.replace("/resources/pdf/", "/resources/pdf-previews/").replace(/\.pdf$/i, ".jpg");
+}
 ---
 
 <BaseLayout
@@ -76,13 +86,23 @@ const pageCopy = {
       />
 
       <div class="article-resource-grid">
-        {article.resources.map((resource) => (
-          <a class="resource-link-card reveal" href={resource.href} target="_blank" rel="noreferrer">
-            <span class="card-tag">{pick(locale, pageCopy.resourcesEyebrow)}</span>
-            <h3>{pick(locale, resource.label)}</h3>
-            {resource.note ? <p>{pick(locale, resource.note)}</p> : null}
-          </a>
-        ))}
+        {article.resources.map((resource) => {
+          const previewSrc = getPdfPreviewSrc(resource.href);
+
+          return (
+            <a class="resource-link-card reveal" href={resource.href} target="_blank" rel="noreferrer">
+              {previewSrc ? (
+                <span class="resource-preview-panel" aria-hidden="true">
+                  <img class="resource-preview-image" src={previewSrc} alt="" loading="lazy" />
+                  <span class="resource-preview-caption">{pdfPreviewCaption}</span>
+                </span>
+              ) : null}
+              <span class="card-tag">{pick(locale, pageCopy.resourcesEyebrow)}</span>
+              <h3>{pick(locale, resource.label)}</h3>
+              {resource.note ? <p>{pick(locale, resource.note)}</p> : null}
+            </a>
+          );
+        })}
       </div>
     </section>
   ) : null}
@@ -113,11 +133,21 @@ const pageCopy = {
 
               {item.links && item.links.length > 0 ? (
                 <div class="resource-link-row">
-                  {item.links.map((link) => (
-                    <a class="resource-link-pill" href={link.href} target="_blank" rel="noreferrer">
-                      {pick(locale, link.label)}
-                    </a>
-                  ))}
+                  {item.links.map((link) => {
+                    const previewSrc = getPdfPreviewSrc(link.href);
+
+                    return (
+                      <a class="resource-link-pill" href={link.href} target="_blank" rel="noreferrer">
+                        {previewSrc ? (
+                          <span class="resource-preview-panel" aria-hidden="true">
+                            <img class="resource-preview-image" src={previewSrc} alt="" loading="lazy" />
+                            <span class="resource-preview-caption">{pdfPreviewCaption}</span>
+                          </span>
+                        ) : null}
+                        <span>{pick(locale, link.label)}</span>
+                      </a>
+                    );
+                  })}
                 </div>
               ) : null}
             </article>
