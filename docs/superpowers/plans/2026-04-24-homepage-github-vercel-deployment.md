@@ -77,7 +77,7 @@ Expected: output includes entries such as `index.html`, `cv`, `news`, `knowledge
 - Include: `docs/`
 - Include: `assets/`
 
-- [ ] **Step 1: Confirm ignored directories are already covered**
+- [x] **Step 1: Confirm ignored directories are already covered**
 
 Run:
 
@@ -87,7 +87,7 @@ Get-Content D:\Code\blog\homepage\.gitignore
 
 Expected: the file lists `node_modules`, `dist`, `.astro`, and `.npm-cache`.
 
-- [ ] **Step 2: Initialize Git at the workspace root**
+- [x] **Step 2: Initialize Git at the workspace root**
 
 Run:
 
@@ -98,7 +98,7 @@ git init
 
 Expected: Git creates `.git` under `D:\Code\blog`.
 
-- [ ] **Step 3: Stage files and verify ignored build artifacts stay out**
+- [x] **Step 3: Stage files and verify ignored build artifacts stay out**
 
 Run:
 
@@ -109,7 +109,7 @@ git status --short
 
 Expected: project files are staged, but `homepage/node_modules`, `homepage/dist`, `homepage/.astro`, and `homepage/.npm-cache` do not appear in the status list.
 
-- [ ] **Step 4: Create the initial commit**
+- [x] **Step 4: Create the initial commit**
 
 Run:
 
@@ -119,7 +119,7 @@ git commit -m "chore: initialize blog repository"
 
 Expected: Git creates the first commit on the default branch.
 
-- [ ] **Step 5: Create an empty GitHub repository in the browser**
+- [x] **Step 5: Create an empty GitHub repository in the browser**
 
 Open GitHub and create a new repository without a README, `.gitignore`, or license.
 
@@ -131,7 +131,7 @@ Run:
 
 ```powershell
 git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo>.git
+git remote add origin https://github.com/lymthomas/lei_homepage.git
 git push -u origin main
 ```
 
