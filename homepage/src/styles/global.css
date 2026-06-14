@@ -827,28 +827,86 @@ li {
 }
 
 @media (max-width: 640px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   .site-shell {
-    padding: 16px 16px 44px;
+    width: 100%;
+    padding: 14px 12px 40px;
   }
 
   .topbar {
     position: static;
     gap: 14px;
-    padding: 16px;
+    padding: 14px;
+    overflow: hidden;
+    border-radius: 22px;
+  }
+
+  .brand-copy strong,
+  .brand-copy span {
+    text-align: center;
   }
 
   .nav {
     gap: 6px;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-link,
   .lang-switcher {
-    width: 100%;
+    width: auto;
     text-align: center;
+    white-space: nowrap;
+  }
+
+  .lang-switcher {
+    width: 100%;
   }
 
   .hero-copy h1 {
     max-width: none;
+  }
+
+  .hero,
+  .section-block,
+  .page-header,
+  .empty-state,
+  .article-cover-panel {
+    border-radius: 20px;
+  }
+
+  .hero,
+  .section-block,
+  .page-header,
+  .empty-state {
+    padding: 22px;
+  }
+
+  .spotlight-card,
+  .info-card,
+  .highlight-card,
+  .entry-card,
+  .news-preview-card,
+  .timeline-card,
+  .skill-card,
+  .collection-card,
+  .contact-panel,
+  .resource-link-card,
+  .article-detail-card {
+    padding: 20px;
+    border-radius: 18px;
   }
 
   .hero-actions {
@@ -857,6 +915,62 @@ li {
 
   .button {
     width: 100%;
+  }
+
+  .metric-grid {
+    gap: 10px;
+  }
+
+  .profile-header {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .profile-header-media {
+    width: 100%;
+    max-width: 320px;
+    justify-self: center;
+    padding: 10px;
+  }
+
+  .article-meta-panel {
+    padding: 16px;
+  }
+
+  .news-card {
+    gap: 16px;
+  }
+
+  .news-media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .news-copy h2 {
+    margin-top: 12px;
+  }
+
+  .resource-link-row {
+    display: grid;
+  }
+
+  .contact-copy {
+    padding-right: 0;
+  }
+
+  .contact-list a {
+    overflow-wrap: anywhere;
+  }
+
+  .eyebrow,
+  .card-tag,
+  .timeline-period,
+  .card-index {
+    max-width: 100%;
+  }
+
+  .inline-link {
+    overflow-wrap: anywhere;
   }
 }
 
