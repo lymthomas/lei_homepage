@@ -13,6 +13,11 @@
 - After completing each focused task, clean up files in `assets/` that were only needed for that task and are no longer required.
 - Keep `assets/` tidy; do not leave copied source files, temporary exports, or intermediate materials there once their public-site equivalents have been placed in `homepage/public/resources/`.
 
+## Public copy
+
+- Public website copy should read naturally to human visitors.
+- Keep Agent-facing maintenance notes, site-structure notes, placeholder plans, and update instructions out of rendered pages; put them in `homepage/UPDATE_GUIDE.md` instead.
+
 ## Deployment notes
 
 - The public homepage lives in `homepage/`.

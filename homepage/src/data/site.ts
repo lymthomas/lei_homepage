@@ -110,8 +110,8 @@ export const siteMeta = {
 export const ui = {
   languageSwitch: { zh: "EN", en: "中文" },
   footer: {
-    zh: "以结构化内容维护的中英双语学术主页，便于后续持续扩展。",
-    en: "A bilingual academic homepage maintained with structured content for long-term updates."
+    zh: "本网站主要由 AI Agent 制作与更新。",
+    en: "This site is primarily built and updated with AI agents."
   },
   home: {
     eyebrow: { zh: "个人学术主页", en: "Academic Homepage" },
@@ -140,8 +140,8 @@ export const ui = {
     newsEyebrow: { zh: "最新动态", en: "Latest News" },
     newsTitle: { zh: "新闻", en: "News Section" },
     newsDescription: {
-      zh: "首批新闻来自公开微信公众号文章，按时间倒序整理，并为每条内容预留了后续补图位置。",
-      en: "The first batch comes from public WeChat articles, sorted in reverse chronological order with a reserved image slot for each item."
+      zh: "这里记录公开报道和阶段性动态，按时间倒序呈现，便于快速了解近期经历。",
+      en: "A reverse-chronological view of public coverage and milestone updates."
     },
     newsCta: { zh: "查看全部新闻", en: "View All News" },
     libraryEyebrow: { zh: "资料归档", en: "Library" },
@@ -167,8 +167,8 @@ export const ui = {
     eyebrow: { zh: "完整履历", en: "Curriculum Vitae" },
     title: { zh: "教育、研究、荣誉与实践经历", en: "Education, research, honors, and activity record" },
     description: {
-      zh: "这一页承载完整的履历信息，作为主页摘要的展开版本。",
-      en: "This page holds the full record behind the concise summaries shown on the homepage."
+      zh: "这里整理教育经历、研究训练、奖励荣誉与实践活动。",
+      en: "A fuller record of education, research training, honors, and activities."
     },
     education: { zh: "教育经历", en: "Education" },
     research: { zh: "研究经历", en: "Research" },
@@ -180,8 +180,8 @@ export const ui = {
     eyebrow: { zh: "新闻", en: "News" },
     title: { zh: "公开报道与阶段性动态", en: "Public mentions and milestone updates" },
     description: {
-      zh: "这一页汇总公开可访问的新闻报道，按时间倒序整理，并为每条报道预留独立图片位置，方便后续继续完善。",
-      en: "This page gathers publicly accessible news coverage in reverse chronological order, with a reserved image slot for each story so the section can keep growing."
+      zh: "这里收录公开报道与阶段性动态，按时间倒序呈现。",
+      en: "A reverse-chronological archive of public coverage and milestone updates."
     },
     sourceLabel: { zh: "来源", en: "Source" },
     linkLabel: { zh: "查看原文", en: "Open Article" },
@@ -191,8 +191,8 @@ export const ui = {
     eyebrow: { zh: "知识分享", en: "Knowledge Sharing" },
     title: { zh: "课程资料、实验记录与学习整理", en: "Course materials, lab archives, and study notes" },
     description: {
-      zh: "旧站中的实验记录、课程论文、复习提纲和个人整理资料已经迁入这里，并统一成可持续维护的知识库结构。",
-      en: "The experiment logs, course papers, review outlines, and personal study materials from the original site have been migrated here as a maintainable library."
+      zh: "旧站中的实验记录、课程论文、复习提纲和个人整理资料已集中到这里，方便浏览与下载。",
+      en: "Experiment logs, course papers, review outlines, and personal study materials from the original site are collected here for browsing and download."
     },
     emptyTitle: { zh: "知识库正在继续扩展", en: "The library is still expanding" },
     emptyBody: {
