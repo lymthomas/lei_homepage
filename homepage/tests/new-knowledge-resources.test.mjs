@@ -6,11 +6,15 @@ const root = process.cwd();
 const library = readFileSync(join(root, "src/data/library.ts"), "utf8");
 
 const requiredSnippets = [
+  'slug: "scientific-english-writing-communication"',
   'slug: "computational-physics-assignments"',
   'slug: "philosophy-assignments"',
   'slug: "modern-physics-experiment-reports"',
   'slug: "today-physics-outline"',
   'slug: "reinforcement-learning-notes"',
+  "science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure.pdf",
+  "science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure-slides.pdf",
+  "science_english_writing/An_approach_to_the_preparation_of_chicken_using_heat_and_flavoring.pdf",
   "computing_physics_assignments/2300011454_雷逸鸣_hw1.pdf",
   "philosophy_assignments/assignment7-2300011454.pdf",
   "modern_physics_experiments/磁光克尔效应_雷逸鸣.pdf",
@@ -19,6 +23,12 @@ const requiredSnippets = [
 ];
 
 const requiredFiles = [
+  "public/resources/pdf/science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure.pdf",
+  "public/resources/pdf/science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure-slides.pdf",
+  "public/resources/pdf/science_english_writing/An_approach_to_the_preparation_of_chicken_using_heat_and_flavoring.pdf",
+  "public/resources/pdf-previews/science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure.jpg",
+  "public/resources/pdf-previews/science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure-slides.jpg",
+  "public/resources/pdf-previews/science_english_writing/An_approach_to_the_preparation_of_chicken_using_heat_and_flavoring.jpg",
   "public/resources/pdf/computing_physics_assignments/2300011454_雷逸鸣_hw1.pdf",
   "public/resources/pdf/computing_physics_assignments/2300011454_雷逸鸣_hw2.pdf",
   "public/resources/pdf/computing_physics_assignments/2300011454_雷逸鸣_hw3.pdf",

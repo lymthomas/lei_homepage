@@ -6,6 +6,7 @@ const root = process.cwd();
 const library = readFileSync(join(root, "src/data/library.ts"), "utf8");
 
 const expectedOrder = [
+  "scientific-english-writing-communication",
   "reinforcement-learning-notes",
   "lg-formula-sheet",
   "philosophy-assignments",

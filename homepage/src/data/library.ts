@@ -53,6 +53,7 @@ const conceptMap = { zh: "结构图", en: "Concept Map" };
 const fullPaper = { zh: "论文 PDF", en: "Paper PDF" };
 
 const knowledgeOrder = [
+  "scientific-english-writing-communication",
   "reinforcement-learning-notes",
   "lg-formula-sheet",
   "philosophy-assignments",
@@ -763,6 +764,44 @@ export const knowledgeArticles: KnowledgeArticle[] = [
     ],
     resources: [
       { label: { zh: "强化学习知识整理", en: "Reinforcement Learning Notes" }, href: `${pdfRoot}/study_notes/强化学习知识整理.pdf`, note: { zh: "学习笔记 PDF", en: "Study Notes PDF" } }
+    ]
+  },
+  {
+    slug: "scientific-english-writing-communication",
+    date: "2026-06-19",
+    title: { zh: "科学英语写作与交流", en: "Scientific English Writing and Communication" },
+    summary: {
+      zh: "收录科学英语写作与交流课程中的论文、展示 slides 与写作练习资料。",
+      en: "A small archive of the paper, presentation slides, and writing exercise from Scientific English Writing and Communication."
+    },
+    tag: { zh: "课程资料", en: "Course Materials" },
+    featured: false,
+    intro: [
+      {
+        zh: "这一页集中保存科学英语写作与交流课程中的三份资料，便于在资料分享栏目中统一访问。",
+        en: "This entry keeps three materials from the Scientific English Writing and Communication course together for convenient access."
+      },
+      {
+        zh: "内容包括一篇关于低成本传感与日常基础设施的英文论文、配套展示 slides，以及一份以科学论文语体练习写作的文本。",
+        en: "It includes an English paper on low-cost sensing for everyday infrastructure, the accompanying presentation slides, and a writing exercise in a scientific-paper style."
+      }
+    ],
+    resources: [
+      {
+        label: { zh: "AI 辅助低成本传感论文", en: "AI-Assisted Low-Cost Sensing Paper" },
+        href: `${pdfRoot}/science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure.pdf`,
+        note: { zh: "英文论文 PDF", en: "English paper PDF" }
+      },
+      {
+        label: { zh: "AI 辅助低成本传感展示 slides", en: "AI-Assisted Low-Cost Sensing Slides" },
+        href: `${pdfRoot}/science_english_writing/AI-Assisted_Low-Cost_Sensing_for_Everyday_Infrastructure-slides.pdf`,
+        note: { zh: "课堂展示 PDF", en: "Presentation slides PDF" }
+      },
+      {
+        label: { zh: "鸡肉制备科学写作练习", en: "Chicken Preparation Writing Exercise" },
+        href: `${pdfRoot}/science_english_writing/An_approach_to_the_preparation_of_chicken_using_heat_and_flavoring.pdf`,
+        note: { zh: "科学论文语体练习 PDF", en: "Scientific-paper style exercise PDF" }
+      }
     ]
   }
 ];
