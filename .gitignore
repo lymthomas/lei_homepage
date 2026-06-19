@@ -1,2 +1,5 @@
 # Local Netlify folder
 .netlify
+
+# Task source assets and local staging files
+assets/
