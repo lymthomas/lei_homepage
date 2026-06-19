@@ -128,8 +128,8 @@ export const ui = {
     researchEyebrow: { zh: "研究概览", en: "Research Overview" },
     researchTitle: { zh: "当前关注的三条主线", en: "Current lines of focus" },
     researchDescription: {
-      zh: "围绕本科阶段的研究、实验与工具实践，将学术积累与可持续的个人站点结构结合。",
-      en: "A compact view of the research, experimentation, and tool-building themes shaping this stage of study."
+      zh: "从集成光学研究、实验训练到 AI 辅助科研，记录我目前最投入的几个方向。",
+      en: "A snapshot of the themes I am currently most engaged with, from integrated optics and experimental practice to AI-assisted research."
     },
     highlightsEyebrow: { zh: "精选经历", en: "Selected Highlights" },
     highlightsTitle: { zh: "目前最能代表我的几个侧面", en: "A few snapshots that best represent the current profile" },
@@ -140,8 +140,8 @@ export const ui = {
     newsEyebrow: { zh: "最新动态", en: "Latest News" },
     newsTitle: { zh: "新闻", en: "News Section" },
     newsDescription: {
-      zh: "这里记录公开报道和阶段性动态，按时间倒序呈现，便于快速了解近期经历。",
-      en: "A reverse-chronological view of public coverage and milestone updates."
+      zh: "近期报道、项目进展与活动记录集中在这里，方便快速了解我的阶段性经历。",
+      en: "Recent coverage, project updates, and activity records are collected here as a quick view of recent milestones."
     },
     newsCta: { zh: "查看全部新闻", en: "View All News" },
     libraryEyebrow: { zh: "资料归档", en: "Library" },
@@ -153,22 +153,22 @@ export const ui = {
     sectionsEyebrow: { zh: "站点结构", en: "Site Structure" },
     sectionsTitle: { zh: "从主页进入更具体的栏目", en: "Use the homepage as the entry point to deeper sections" },
     sectionsDescription: {
-      zh: "主页继续作为总入口，新闻、知识库与履历页已经形成更完整的内容层次。",
-      en: "The homepage remains the main entry point while the news feed, library, and CV now offer a fuller set of content."
+      zh: "你可以从这里继续查看公开报道、课程资料、项目入口与完整履历。",
+      en: "From here, you can continue to public coverage, course materials, project links, and the full CV."
     },
     contactEyebrow: { zh: "联系方式", en: "Contact" },
     contactTitle: { zh: "对外公开信息保持简洁但可扩展", en: "Public contact information stays concise while remaining extensible" },
     contactDescription: {
-      zh: "当前公开学校邮箱和课题组公开页面；更多链接可在后续需要时加入。",
-      en: "The current public profile includes the academic email and lab page, while additional links can be added later."
+      zh: "欢迎通过学校邮箱联系，也可以访问课题组页面了解更多研究背景。",
+      en: "Feel free to reach me by academic email, or visit the lab page for more context on my research environment."
     }
   },
   cv: {
     eyebrow: { zh: "完整履历", en: "Curriculum Vitae" },
     title: { zh: "教育、研究、荣誉与实践经历", en: "Education, research, honors, and activity record" },
     description: {
-      zh: "这里整理教育经历、研究训练、奖励荣誉与实践活动。",
-      en: "A fuller record of education, research training, honors, and activities."
+      zh: "从教育背景到科研训练、奖励荣誉与社会活动，呈现更完整的个人经历。",
+      en: "A fuller view of my background, covering education, research training, honors, and activities."
     },
     education: { zh: "教育经历", en: "Education" },
     research: { zh: "研究经历", en: "Research" },
@@ -180,8 +180,8 @@ export const ui = {
     eyebrow: { zh: "新闻", en: "News" },
     title: { zh: "公开报道与阶段性动态", en: "Public mentions and milestone updates" },
     description: {
-      zh: "这里收录公开报道与阶段性动态，按时间倒序呈现。",
-      en: "A reverse-chronological archive of public coverage and milestone updates."
+      zh: "整理与我相关的公开报道、项目进展和活动记录，呈现不同阶段的成长轨迹。",
+      en: "Public coverage, project updates, and activity records that trace different stages of my academic path."
     },
     sourceLabel: { zh: "来源", en: "Source" },
     linkLabel: { zh: "查看原文", en: "Open Article" },
