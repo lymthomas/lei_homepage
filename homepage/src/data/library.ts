@@ -53,9 +53,9 @@ const conceptMap = { zh: "结构图", en: "Concept Map" };
 const fullPaper = { zh: "论文 PDF", en: "Paper PDF" };
 
 const knowledgeOrder = [
-  "scientific-english-writing-communication",
   "reinforcement-learning-notes",
   "lg-formula-sheet",
+  "scientific-english-writing-communication",
   "philosophy-assignments",
   "modern-physics-experiment-reports",
   "today-physics-outline",
